@@ -25,17 +25,17 @@ namespace QLHĐSolotion.Application.Doitac
             _context = context;
             //_storageService= storageService;
         }
-        public async Task<List<KhachHangViewModels>> GetAll()
+        public async Task<List<DoiTacViewModels>> GetAll()
         {
             var query = from dt in _context.CtrDoiTacs
                         select dt;
-            var doitac = await query.Select(x => new KhachHangViewModels()
+            var doitac = await query.Select(x => new DoiTacViewModels()
             {
                 CtrDoitacID = x.CtrDoiTacID,
                 MaDoitac = x.MaDoitac,
                 TenDoiTac = x.TenDoiTac,
                 DiaChi = x.DiaChi,
-                MaSoThue = x.MaSoThue,
+                MaSoThue = x.MaSoThueDT,
                 DienThoai = x.DienThoai,
                 TaiKhoanDangNhap = x.TaiKhoanDangNhap
             }).ToListAsync();
@@ -43,20 +43,20 @@ namespace QLHĐSolotion.Application.Doitac
             return doitac;
         }
 
-        public Task<PagedResult<KhachHangViewModels>> GetAllByCategoryId(GetPublicKhachHangPagingRequest request)
+        public Task<PagedResult<DoiTacViewModels>> GetAllByCategoryId(GetPublicDoiTacPagingRequest request)
         {
             throw new NotImplementedException();
         }
       
-        public async Task<Guid> Create(CtrKhachHangCreateRequest request)
-        {      request.CtrDoiTacID = Guid.NewGuid();
+        public async Task<int> Create(CtrDoiTacCreateRequest request)
+        {    /*  request.CtrDoiTacID = Guid.NewGuid();*/
             var doitac = new CtrDoiTac()
             {
-                CtrDoiTacID = request.CtrDoiTacID,
+                //CtrDoiTacID = request.CtrDoiTacID,
                 MaDoitac = request.MaDoitac,
                 TenDoiTac = request.TenDoiTac,
                 DiaChi = request.DiaChi,
-                MaSoThue = request.MaSoThue,
+                MaSoThueDT = request.MaSoThue,
                 DienThoai = request.DienThoai,
                 TaiKhoanDangNhap = request.TaiKhoanDangNhap
             };
@@ -65,7 +65,7 @@ namespace QLHĐSolotion.Application.Doitac
             return doitac.CtrDoiTacID;
         }
 
-        public async Task<int> Delete(Guid doitacID)
+        public async Task<int> Delete(int doitacID)
         {
 
             var doitac = await _context.CtrDoiTacs.FindAsync(doitacID);
@@ -87,12 +87,12 @@ namespace QLHĐSolotion.Application.Doitac
         //    throw new NotImplementedException();
         //}
 
-        public List<KhachHangViewModels> GetAllPaging(string keywork, int pageIndex, int pageSize)
+        public List<DoiTacViewModels> GetAllPaging(string keywork, int pageIndex, int pageSize)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<Guid> Update(CtrKhachHangUpdateRequest request)
+        public async Task<int> Update(CtrDoiTacUpdateRequest request)
         {
             var product = await _context.CtrDoiTacs.FindAsync(request.CtrDoiTacID);
             if (product == null) throw new EShopException($"Cannot find a product with id: {request.CtrDoiTacID}");
@@ -101,7 +101,7 @@ namespace QLHĐSolotion.Application.Doitac
                 product.MaDoitac = request.MaDoitac;
                 product.TenDoiTac = request.TenDoiTac;
                 product.DiaChi = request.DiaChi;
-                product.MaSoThue = request.MaSoThue;
+                product.MaSoThueDT = request.MaSoThue;
                 product.DienThoai = request.DienThoai;
                 product.TaiKhoanDangNhap = request.TaiKhoanDangNhap;
                 _context.CtrDoiTacs.Update(product);

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace QLHĐSolotion.Application.Doitac.Dtos
 {
-    public class CtrKhachHangUpdateRequest
+    public class CtrDoiTacUpdateRequest
     {
-        public Guid CtrDoiTacID { get; set; }
+        public int CtrDoiTacID { get; set; }
 
         public string MaDoitac { get; set; }
 

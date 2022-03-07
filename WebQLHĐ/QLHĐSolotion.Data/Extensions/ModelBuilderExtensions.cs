@@ -15,22 +15,22 @@ namespace QLHĐSolotion.Data.Extensions
             modelBuilder.Entity<CtrDoiTac>().HasData(
               new CtrDoiTac()
               {
-                  CtrDoiTacID = new Guid("69BD714F-9576-45BA-B5B7-F00649BE00DE"),
+                  CtrDoiTacID = 1,
                   MaDoitac = "01",
                   TenDoiTac = "phạm văn mạnh",
                   DiaChi = "phạm văn mạnh", 
-                  MaSoThue = 777,
+                  MaSoThueDT = 777,
                   DienThoai = 1555555,
                   TaiKhoanDangNhap ="ADMIN"
 
               },
                new CtrDoiTac()
                {
-                   CtrDoiTacID = new Guid("8D04DCE2-969A-435D-BBA4-DF3F325983DC"),
+                   CtrDoiTacID = 2,
                    MaDoitac = "02",
                    TenDoiTac = "phạm văn mạnh",
                    DiaChi = "phạm văn mạnh",
-                   MaSoThue = 777,
+                   MaSoThueDT = 777,
                    DienThoai = 1555555,
                    TaiKhoanDangNhap = "ADMIN"
                });

@@ -15,4 +15,8 @@
     <PackageReference Include="Microsoft.Xrm.Sdk.Workflow.2011" Version="5.0.18" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\QLHĐSolotion.Data\QLHĐSolotion.Data.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -11,7 +11,7 @@ namespace QLHĐSolotion.Data.Entity
 {
     public partial class CtrHopDong
     {
-        public Guid CtrHopDongID { get; set; }
+        public int CtrHopDongID { get; set; }
         [Required(ErrorMessage = "Mời nhập mã số")]
         [Display(Name = "Mã số")]
         [StringLength(50, ErrorMessage = "Độ đài ít nhất 3 kí tự.", MinimumLength = 3)]
@@ -64,10 +64,11 @@ namespace QLHĐSolotion.Data.Entity
         public decimal GiaTriGoiDV { get; set; }
         [Required(ErrorMessage = "Mời chọn ID đối tác")]
         [Display(Name = "ID Đối tác")]
-        public Guid CtrDoiTacID { get; set; }
+        public int CtrDoiTacID { get; set; }
         [Required(ErrorMessage = "Mời chọn ID Khách hàng")]
         [Display(Name = "ID Khách Hàng")]
-        public Guid CtrKhachHangID { get; set; }
+        public int CtrKhachHangID { get; set; }
+        public int CtrCongNoID { set; get; }
         public bool TrangThai { get; set; }
 
         //public string TenDoiTac { get; set; }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QLHĐSolotion.ViewModel.Doitac.Dtos
 {
-    public class GetManageKhachHangPagingRequest: PagingRequestBase
+    public class GetManageDoiTacPagingRequest : PagingRequestBase
     {
         public string Keyword { get; set; }
 

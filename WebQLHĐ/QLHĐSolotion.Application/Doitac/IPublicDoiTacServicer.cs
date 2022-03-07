@@ -11,18 +11,18 @@ namespace QLHĐSolotion.ViewModel.Doitac.Dtos
 {
     public  interface IPublicDoiTacServicer
     {
-        Task<PagedResult<KhachHangViewModels>> GetAllByCategoryId(GetPublicKhachHangPagingRequest request);
+        Task<PagedResult<DoiTacViewModels>> GetAllByCategoryId(GetPublicDoiTacPagingRequest request);
 
-         Task<List<KhachHangViewModels>> GetAll();
-        Task<Guid> Create(CtrKhachHangCreateRequest request);
+         Task<List<DoiTacViewModels>> GetAll();
+        Task<int> Create(CtrDoiTacCreateRequest request);
 
-        Task<Guid> Update(CtrKhachHangUpdateRequest request);
+        Task<int> Update(CtrDoiTacUpdateRequest request);
 
-        Task<int> Delete(Guid doitacID);
+        Task<int> Delete(int doitacID);
 
 
         //List<DoiTacViewModels> GetAll();
-        List<KhachHangViewModels> GetAllPaging(String keywork, int pageIndex, int pageSize);
+        List<DoiTacViewModels> GetAllPaging(String keywork, int pageIndex, int pageSize);
     }
 
 }

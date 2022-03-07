@@ -10,3 +10,8 @@ C:\Users\Admin\Desktop\WebQLHĐ\QLHĐSolotion.ViewModel\obj\Debug\net6.0\QLHĐSo
 C:\Users\Admin\Desktop\WebQLHĐ\QLHĐSolotion.ViewModel\obj\Debug\net6.0\refint\QLHĐSolotion.ViewModel.dll
 C:\Users\Admin\Desktop\WebQLHĐ\QLHĐSolotion.ViewModel\obj\Debug\net6.0\QLHĐSolotion.ViewModel.pdb
 C:\Users\Admin\Desktop\WebQLHĐ\QLHĐSolotion.ViewModel\obj\Debug\net6.0\ref\QLHĐSolotion.ViewModel.dll
+C:\Users\Admin\Desktop\WebQLHĐ\QLHĐSolotion.ViewModel\bin\Debug\net6.0\QLHĐSolotion.ViewModel.runtimeconfig.json
+C:\Users\Admin\Desktop\WebQLHĐ\QLHĐSolotion.ViewModel\bin\Debug\net6.0\QLHĐSolotion.Data.dll
+C:\Users\Admin\Desktop\WebQLHĐ\QLHĐSolotion.ViewModel\bin\Debug\net6.0\QLHĐSolotion.Data.pdb
+C:\Users\Admin\Desktop\WebQLHĐ\QLHĐSolotion.ViewModel\obj\Debug\net6.0\QLHĐSolotion.ViewModel.csproj.CopyComplete
+C:\Users\Admin\Desktop\WebQLHĐ\QLHĐSolotion.ViewModel\obj\Debug\net6.0\QLHĐSolotion.ViewModel.genruntimeconfig.cache

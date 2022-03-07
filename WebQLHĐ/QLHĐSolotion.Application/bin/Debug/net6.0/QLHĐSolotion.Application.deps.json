@@ -1249,7 +1249,8 @@
           "Microsoft.Extensions.Hosting": "6.0.1",
           "Microsoft.IdentityModel.Tokens": "6.16.0",
           "Microsoft.OpenApi": "1.2.3",
-          "Microsoft.Xrm.Sdk.Workflow.2011": "5.0.18"
+          "Microsoft.Xrm.Sdk.Workflow.2011": "5.0.18",
+          "QLHĐSolotion.Data": "1.0.0"
         },
         "runtime": {
           "QLHĐSolotion.ViewModel.dll": {}

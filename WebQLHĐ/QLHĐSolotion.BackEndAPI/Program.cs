@@ -5,7 +5,10 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using QLHĐSolotion.Application.CongNo;
 using QLHĐSolotion.Application.Doitac;
+using QLHĐSolotion.Application.HopDong;
+using QLHĐSolotion.Application.KhachHang;
 using QLHĐSolotion.Data.EF;
 using QLHĐSolotion.Data.Extensions;
 using QLHĐSolotion.ViewModel.Doitac.Dtos;
@@ -20,7 +23,10 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("eShopSolutionDb"
 //options.UseSqlServer("eShopSolutionDb");SystemConstants.MainConnectionString
 
 //Declare DI
+builder.Services.AddTransient<IPublicKhachHangServicer, PublicKhachHangService>();
 builder.Services.AddTransient<IPublicDoiTacServicer, PublicDoiTacService>();
+builder.Services.AddTransient<IPublicCongNoServicer, PublicCongNoService>();
+builder.Services.AddTransient<IPublicHopDongServicer, PublicHopDongServicer>();
 //builder.Services.AddTransient<IDoitacService, DoiTacService>();
 builder.Services.AddControllers();
 

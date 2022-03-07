@@ -206,12 +206,11 @@ namespace QLHĐSolotion.Data.Migrations
 
             modelBuilder.Entity("QLHĐSolotion.Data.Entity.CtrCongNo", b =>
                 {
-                    b.Property<Guid>("CtrCongNoID")
+                    b.Property<int>("CtrCongNoID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("CtrHopDongID")
-                        .HasColumnType("uniqueidentifier");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CtrCongNoID"), 1L, 1);
 
                     b.Property<decimal>("DaThanhToan")
                         .HasColumnType("decimal(18,2)");
@@ -247,9 +246,11 @@ namespace QLHĐSolotion.Data.Migrations
 
             modelBuilder.Entity("QLHĐSolotion.Data.Entity.CtrDoiTac", b =>
                 {
-                    b.Property<Guid>("CtrDoiTacID")
+                    b.Property<int>("CtrDoiTacID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CtrDoiTacID"), 1L, 1);
 
                     b.Property<string>("DiaChi")
                         .IsRequired()
@@ -265,7 +266,7 @@ namespace QLHĐSolotion.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("MaSoThue")
+                    b.Property<int>("MaSoThueDT")
                         .HasMaxLength(50)
                         .HasColumnType("int");
 
@@ -286,21 +287,21 @@ namespace QLHĐSolotion.Data.Migrations
                     b.HasData(
                         new
                         {
-                            CtrDoiTacID = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
+                            CtrDoiTacID = 1,
                             DiaChi = "phạm văn mạnh",
                             DienThoai = 1555555,
                             MaDoitac = "01",
-                            MaSoThue = 777,
+                            MaSoThueDT = 777,
                             TaiKhoanDangNhap = "ADMIN",
                             TenDoiTac = "phạm văn mạnh"
                         },
                         new
                         {
-                            CtrDoiTacID = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
+                            CtrDoiTacID = 2,
                             DiaChi = "phạm văn mạnh",
                             DienThoai = 1555555,
                             MaDoitac = "02",
-                            MaSoThue = 777,
+                            MaSoThueDT = 777,
                             TaiKhoanDangNhap = "ADMIN",
                             TenDoiTac = "phạm văn mạnh"
                         });
@@ -308,21 +309,23 @@ namespace QLHĐSolotion.Data.Migrations
 
             modelBuilder.Entity("QLHĐSolotion.Data.Entity.CtrHopDong", b =>
                 {
-                    b.Property<Guid>("CtrHopDongID")
+                    b.Property<int>("CtrHopDongID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CtrHopDongID"), 1L, 1);
 
                     b.Property<Guid?>("AppUserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("CtrCongNoID")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("CtrCongNoID")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("CtrDoiTacID")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("CtrDoiTacID")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("CtrKhachHangID")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("CtrKhachHangID")
+                        .HasColumnType("int");
 
                     b.Property<string>("DonViHDDT")
                         .IsRequired()
@@ -390,19 +393,20 @@ namespace QLHĐSolotion.Data.Migrations
 
             modelBuilder.Entity("QLHĐSolotion.Data.Entity.CtrKhachHang", b =>
                 {
-                    b.Property<Guid>("CtrKhachHangID")
+                    b.Property<int>("CtrKhachHangID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CtrKhachHangID"), 1L, 1);
 
                     b.Property<string>("Diachi")
                         .IsRequired()
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
-                    b.Property<string>("Dienthoai")
-                        .IsRequired()
+                    b.Property<int>("Dienthoai")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("int");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -414,10 +418,9 @@ namespace QLHĐSolotion.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("MaSothue")
-                        .IsRequired()
+                    b.Property<int>("MaSothueKH")
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("NgayCapNhat")
                         .HasColumnType("datetime2");
@@ -456,7 +459,9 @@ namespace QLHĐSolotion.Data.Migrations
 
                     b.HasOne("QLHĐSolotion.Data.Entity.CtrCongNo", "CtrCongNo")
                         .WithMany("CtrHopDongs")
-                        .HasForeignKey("CtrCongNoID");
+                        .HasForeignKey("CtrCongNoID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("QLHĐSolotion.Data.Entity.CtrDoiTac", "CtrDoiTac")
                         .WithMany("CtrHopDongs")

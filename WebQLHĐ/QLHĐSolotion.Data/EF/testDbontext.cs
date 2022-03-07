@@ -16,6 +16,8 @@ namespace QLHĐSolotion.Data.EF
         public testDbontext (DbContextOptions options) : base(options)
         { }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
+        
+        
         {
             
 

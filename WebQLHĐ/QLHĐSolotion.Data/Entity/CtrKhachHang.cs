@@ -17,7 +17,7 @@ namespace QLHĐSolotion.Data.Entity
             CtrHopDongs = new HashSet<CtrHopDong>();
         }
 
-        public Guid CtrKhachHangID { get; set; }
+        public int CtrKhachHangID { get; set; }
         [Required(ErrorMessage = "Mời nhập mã số")]
         [Display(Name = "Mã số")]
         [StringLength(50, ErrorMessage = "Độ đài ít nhất 3 kí tự.", MinimumLength = 3)]
@@ -31,7 +31,7 @@ namespace QLHĐSolotion.Data.Entity
         [Required(ErrorMessage = "Mời nhập mã số thuế")]
         [Display(Name = "Mã số thuế")]
         [StringLength(50, ErrorMessage = "Độ đài ít nhất 3 kí tự.", MinimumLength = 10)]
-        public string MaSothue { get; set; }
+        public int MaSothueKH { get; set; }
         [Required(ErrorMessage = "Mời nhập Địa chỉ")]
 
         [Display(Name = "Địa chỉ")]
@@ -41,7 +41,7 @@ namespace QLHĐSolotion.Data.Entity
         [Phone(ErrorMessage = "Số điện thoại bạn nhập không đúng")]
         [Display(Name = "Điện thoại")]
         [StringLength(50, ErrorMessage = "Độ đài ít nhất 10 kí tự.", MinimumLength = 10)]
-        public string Dienthoai { get; set; }
+        public int Dienthoai { get; set; }
 
         [Required(ErrorMessage = "Mời nhập Website")]
         [Display(Name = "Website")]

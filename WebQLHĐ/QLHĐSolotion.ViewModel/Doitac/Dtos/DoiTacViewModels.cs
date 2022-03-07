@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace QLHĐSolotion.ViewModel.Doitac.Dtos
 {
-    public class KhachHangViewModels
+    public class DoiTacViewModels
     {
-        public Guid CtrDoitacID { get; set; }
+        public int CtrDoitacID { get; set; }
         public string MaDoitac { get; set; }
 
         public string TenDoiTac { get; set; }

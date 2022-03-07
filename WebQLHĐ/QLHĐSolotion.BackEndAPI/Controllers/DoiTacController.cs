@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using QLHĐSolotion.Application.Doitac.Dtos;
 using Microsoft.AspNetCore.Authorization;
 
+
 namespace QLHĐSolotion.BackendAPI.Controllers
 {
     [Route("api/[controller]")]
@@ -42,8 +43,8 @@ namespace QLHĐSolotion.BackendAPI.Controllers
                 return BadRequest(ModelState);
             }
             var productId = await _DoiTacService.Create(request);
-            request.CtrDoiTacID = Guid.NewGuid();
-            if (productId == request.CtrDoiTacID)
+            //request.CtrDoiTacID = Guid.NewGuid();
+            if (productId ==0)
                 return BadRequest();
 
             //var product = await _doitacService.GetById(productId, request.LanguageId);
@@ -53,15 +54,15 @@ namespace QLHĐSolotion.BackendAPI.Controllers
         
         [HttpPut]
         
-        public async Task<IActionResult> Update([FromRoute] Guid productId, [FromForm] CtrDoiTacUpdateRequest request)
+        public async Task<IActionResult> Update(/*FromRoute] int productId,*/ [FromForm] CtrDoiTacUpdateRequest request)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            request.CtrDoiTacID = productId;
+            //request.CtrDoiTacID = productId;
             var affectedResult = await _DoiTacService.Update(request);
-            if (affectedResult == productId)
+            if (affectedResult == 0)
                 return BadRequest();
             return Ok(affectedResult);
         }
@@ -69,7 +70,7 @@ namespace QLHĐSolotion.BackendAPI.Controllers
         // Delete
         [HttpDelete("{doitacID}")]
         //[Authorize]
-        public async Task<IActionResult> Delete(Guid doitacID)
+        public async Task<IActionResult> Delete(int doitacID)
         {
             var affectedResult = await _DoiTacService.Delete(doitacID);
             if (affectedResult == 0)
